@@ -1,0 +1,10 @@
+---
+- name: Hello World
+  hosts: web
+  become: yes
+  vars:
+    greeting: "Hola Mundo"
+  tasks:
+    - name: Show greeting message
+      debug:
+        msg: "{{ greeting }}"
