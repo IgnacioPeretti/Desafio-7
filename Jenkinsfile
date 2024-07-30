@@ -32,9 +32,9 @@ pipeline {
                     sh 'mkdir -p ~/inventories/main'
                     sh 'mkdir -p ~/playbook'
                     // Copiar los archivos necesarios al agente remoto
-                    sh 'cp ${WORKSPACE}/inventories/dev/host.ini ~/inventories/dev/'
-                    sh 'cp ${WORKSPACE}/inventories/staging/host.ini ~/inventories/staging/'
-                    sh 'cp ${WORKSPACE}/inventories/main/host.ini ~/inventories/main/'
+                    sh 'cp ${WORKSPACE}/inventories/dev/inventory.init ~/inventories/dev/'
+                    sh 'cp ${WORKSPACE}/inventories/staging/inventory.init ~/inventories/staging/'
+                    sh 'cp ${WORKSPACE}/inventories/main/inventory.init ~/inventories/main/'
                     sh 'cp ${WORKSPACE}/playbook/playbook.yml ~/playbook/'
                 }
             }
