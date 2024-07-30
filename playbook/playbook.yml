@@ -1,0 +1,6 @@
+---
+- name: Display Hello World and Environment Variable
+  hosts: web
+  become: yes
+  vars:
+    greeting: "Hola Mundo"
