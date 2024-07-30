@@ -6,7 +6,7 @@ pipeline {
         stage('Preparation') {
             steps {
                 script {
-                    // Definir el entorno en función de la branch
+                
                     if (env.BRANCH_NAME == 'dev') {
                         env.INVENTORY = 'inventories/dev/inventory.init'
                     } else if (env.BRANCH_NAME == 'staging') {
