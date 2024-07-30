@@ -24,25 +24,25 @@ pipeline {
         stage('Copy Files') {
             steps {
                 script {
-                    // Crear los directorios necesarios en el agente
+                    // Creamos los directorios necesarios en el agente
                     sh """
                     mkdir -p ~/inventories/dev ~/inventories/staging ~/inventories/main ~/playbook
                     """
 
-                    // Copiar los archivos necesarios al agente remoto
+                    // Copiamos los archivos necesarios al agente remoto
                     sh """
                     cp ${WORKSPACE}/inventories/dev/inventory.init ~/inventories/dev/
                     cp ${WORKSPACE}/inventories/staging/inventory.init ~/inventories/staging/
                     cp ${WORKSPACE}/inventories/main/inventory.init ~/inventories/main/
-                    cp ${WORKSPACE}/playbook/playbook.yml ~/playbook/
+                    cp ${WORKSPACE}/playbook/main.yml ~/playbook/
                     """
                 }
             }
         }
-        stage('Run Playbook') {
+        stage('Run Ansible Playbook from Jenkins') {
             steps {
                 sh """
-                ansible-playbook -i ~/${env.INVENTORY} ~/playbook/playbook.yml --ssh-extra-args='-o StrictHostKeyChecking=no'
+                ansible-playbook -i ~/${env.INVENTORY} ~/playbook/main.yml --ssh-extra-args='-o StrictHostKeyChecking=no'
                 """
             }
         }
