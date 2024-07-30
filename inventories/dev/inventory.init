@@ -1,0 +1,2 @@
+[web]
+172.17.104.33 ansible_user=ubuntu
